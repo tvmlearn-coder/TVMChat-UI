@@ -1,0 +1,212 @@
+/* ====== FULL PAGE WRAPPER ====== */
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #fff1dd;   // same beige tone from image
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* ====== CENTER CONTAINER ====== */
+.log-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* ====== LOGIN / REGISTER CARD ====== */
+.login-card {
+  width: 630px;
+  padding: 45px 40px;
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #000;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+  text-align: center;
+
+  h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #222;
+  }
+
+  p {
+    margin-bottom: 25px;
+    color: #666;
+    font-size: 14px;
+  }
+}
+
+/* ====== INPUT GROUP ====== */
+.input-group {
+  display: flex;
+  align-items: center;
+  padding: 14px 18px;
+  background: #fff;
+  border: 1px solid #d8d8d8;
+  border-radius: 40px;
+  margin-bottom: 18px;
+  transition: border-color 0.25s ease;
+
+  &:focus-within {
+    border-color: #1a73e8;
+  }
+
+  i {
+    font-size: 18px;
+    color: #757575;
+    margin-right: 12px;
+  }
+
+  input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    color: #333;
+    background: transparent;
+  }
+}
+
+/* ====== PASSWORD EYE ICON ====== */
+.password-input,
+.confirm-password-input {
+  position: relative;
+
+  .toggle-eye {
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+
+    i {
+      font-size: 20px;
+      color: #888;
+      opacity: 0.7;
+      transition: 0.2s;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+/* ====== BUTTON ====== */
+.next-btn {
+  width: 40%;
+  padding: 13px 22px;
+  background: #00c03a;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  border: none;
+  border-radius: 35px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.25s ease;
+
+  &:hover {
+    background: #00a832;
+  }
+}
+
+/* ====== TOGGLE TEXT ====== */
+.toggle-text {
+  width: 100%;
+  text-align: center;
+  margin-top: 18px;
+  font-size: 14px;
+  color: #555;
+
+  a {
+    margin-left: 5px;
+    color: #1a73e8;
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+
+/* ====== ALERTS ====== */
+.alert {
+  width: 100%;
+  padding: 11px 15px;
+  border-radius: 8px;
+  margin-top: 8px;
+  text-align: left;
+  font-size: 14px;
+
+  &.alert-danger {
+    background: #ffe5e5;
+    border: 1px solid #ffbaba;
+    color: #c70000;
+  }
+
+  &.alert-success {
+    background: #e9ffe9;
+    border: 1px solid #baffc1;
+    color: #0c7a26;
+  }
+}
+
+/* ====== ENCRYPTION TEXT (placed outside card) ====== */
+.encript {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #777;
+
+  i {
+    margin-right: 6px;
+  }
+}
+
+/* ====== TERMS TEXT (placed outside card) ====== */
+.terms {
+  width: 100%;
+  text-align: center;
+  margin-top: 12px;
+  font-size: 13px;
+  color: #555;
+
+  a {
+    text-decoration: underline;
+    cursor: pointer;
+    color: #1a73e8;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.alert {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: left;
+  transition: 0.2s;
+
+  &.alert-danger {
+    background: #ffe6e6;
+    color: #c70000;
+    border: 1px solid #ffb3b3;
+  }
+
+  &.alert-success {
+    background: #eaffea;
+    color: #0f7a2f;
+    border: 1px solid #baffc1;
+  }
+}

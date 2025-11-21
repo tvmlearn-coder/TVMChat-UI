@@ -1,0 +1,19 @@
+{
+  "Access": [
+    {
+      "email": "admin@123.com",
+      "password": "12345",
+      "id": "e673"
+    },
+    {
+      "id": "e0e3",
+      "email": "kumar@123.com",
+      "password": "112233"
+    },
+    {
+      "id": "7ab3",
+      "email": "dhru@123.com",
+      "password": "112212"
+    }
+  ]
+}
