@@ -1,0 +1,51 @@
+.chat-header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 12px 18px;
+  border-bottom: 1px solid #ddd;
+  background: #ffffff;
+}
+
+.profile-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff6a00, #ff0099);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.profile-box h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.profile-box small {
+  color: #6c7278;
+  font-size: 12px;
+}
+
+.actions {
+  margin-left: auto;
+}
+
+.search-box {
+  padding: 6px 10px;
+  width: 180px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+}

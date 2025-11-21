@@ -6,5 +6,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./chat-footer.component.scss']
 })
 export class ChatFooterComponent {
+  
+  showEmoji = false;
+
+  emojis = [
+    "😀","😁","😂","🤣","😃","😄","😅","😉","😊","😍",
+    "😘","😜","🤩","😎","😢","😭","😡","😱","👍","👌",
+    "🙏","🔥","❤️","✨","🎉"
+  ];
+
+  toggleEmoji() {
+    this.showEmoji = !this.showEmoji;
+  }
+
+  pickEmoji(e: string) {
+    console.log("Emoji clicked:", e);
+    
+    this.showEmoji = false;
+  
+  }
 
 }

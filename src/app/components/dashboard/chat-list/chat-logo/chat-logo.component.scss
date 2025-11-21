@@ -1,4 +1,4 @@
-/* PAGE RESET */
+
 html, body {
   margin: 0;
   padding: 0;
@@ -6,28 +6,23 @@ html, body {
   overflow-x: hidden;
 }
 
-/* FIXED HEADER */
+
 .top-header {
   width: 100%;
   height: 55px;
   background: #f0f2f5;
   border-bottom: 1px solid #e6e6e6;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   padding: 0 20px;
   box-sizing: border-box;
-
   position: fixed;
   top: 0;
-  left: 65px;          /* <<< SHIFT RIGHT TO AVOID SIDEBAR */
-                       /* Your sidebar is 65px wide */
+  left: 65px;          
   z-index: 2000;
 }
 
-/* LEFT SECTION (LOGO) */
 .left {
   display: flex;
   align-items: center;

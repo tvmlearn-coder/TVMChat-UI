@@ -1,1 +1,17 @@
-<p>chat-header works!</p>
+<div class="chat-header">
+  <div class="profile-box">
+    <div class="avatar">
+      <img *ngIf="selectedUser?.img; else initials" [src]="selectedUser?.img"  />
+      <ng-template #initials>{{ initials }}</ng-template>
+    </div>
+
+    <div>
+      <h4>{{ selectedUser?.name || 'Select a chat' }}</h4>
+      <small>{{ selectedUser?.lastMessage || 'Tap a chat to start messaging' }}</small>
+    </div>
+  </div>
+
+  <div class="actions">
+    <input type="text" class="search-box" placeholder="Search..." />
+  </div>
+</div>
