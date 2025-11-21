@@ -9,7 +9,7 @@ import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { WebsocketModule } from './websocket/websocket.module';
 import { LoginComponent } from './components/login/login/login.component';
@@ -31,6 +31,7 @@ import { ChatHeaderComponent } from './components/dashboard/chat-box/chat-header
 import { ChatMainComponent } from './components/dashboard/chat-box/chat-main/chat-main.component';
 import { ChatFooterComponent } from './components/dashboard/chat-box/chat-footer/chat-footer.component';
 import { InterceptorInterceptor } from './interceptor.interceptor';
+import { DashboardComponent } from './components/dashboard/dashboard/dashboard.component';
 
 registerLocaleData(en);
 
@@ -54,7 +55,8 @@ registerLocaleData(en);
     ChatBoxComponent,
     ChatHeaderComponent,
     ChatMainComponent,
-    ChatFooterComponent
+    ChatFooterComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -62,8 +64,10 @@ registerLocaleData(en);
     StoreModule.forRoot({}, {}),
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
-    WebsocketModule
+    WebsocketModule,
+    HttpClientModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorInterceptor, multi: true }

@@ -1,1 +1,65 @@
-<p>login works!</p>
+<div class="login-wrapper">
+  <div class="log-container">
+    <div class="login-card">
+
+      <!-- Dynamic Title -->
+      <h2>{{ isRegister ? 'Register' : 'Login' }}</h2>
+
+      <!-- Form -->
+      <form [formGroup]="isRegister ? registerForm : loginForm">
+
+        <!-- Email -->
+        <div class="input-group">
+          <i class="bi bi-envelope-fill"></i>
+          <input type="email" formControlName="email" placeholder="Enter Email" />
+        </div>
+
+        <!-- Password -->
+        <div class="input-group password-input">
+          <i class="bi bi-lock-fill"></i>
+          <input 
+            [type]="passwordVisible ? 'text' : 'password'" 
+            formControlName="password" 
+            placeholder="Password" />
+          <span class="toggle-eye" (click)="togglePassword()">
+            <i [class]="passwordVisible ? 'bi bi-eye-fill' : 'bi bi-eye-slash-fill'"></i>
+          </span>
+        </div>
+
+        <!-- Confirm Password (only for registration) -->
+        <div class="input-group confirm-password-input" *ngIf="isRegister">
+          <i class="bi bi-lock-fill"></i>
+          <input 
+            [type]="confirmPasswordVisible ? 'text' : 'password'" 
+            formControlName="confirmPassword" 
+            placeholder="Confirm Password" />
+          <span class="toggle-eye" (click)="toggleConfirmPassword()">
+            <i [class]="confirmPasswordVisible ? 'bi bi-eye-fill' : 'bi bi-eye-slash-fill'"></i>
+          </span>
+        </div>
+
+        <!-- Error & Success Messages -->
+<div *ngIf="errorMsg" class="alert alert-danger">{{ errorMsg }}</div>
+<div *ngIf="successMsg" class="alert alert-success">{{ successMsg }}</div>
+
+
+        <!-- Submit Button -->
+        <button type="button" (click)="submit()" class="next-btn">
+          {{ isRegister ? 'Register' : 'Login' }}
+        </button>
+
+      </form>
+
+
+    </div>
+          <!-- Toggle Link -->
+      <div class="toggle-text">
+        <span>{{ isRegister ? 'Already have an account?' : "Don't have an account?" }}</span>
+        <a (click)="toggleMode()">{{ isRegister ? 'Sign In' : 'Sign Up' }}</a>
+      </div>
+          <!-- Encryption & Terms -->
+      <div class="encript"><i class="bi bi-shield-lock-fill"></i> Your Personal Messages are end-to-end encrypted</div>
+      <div class="terms"><a href="">Terms & Privacy Policy</a></div>
+
+  </div>
+</div>

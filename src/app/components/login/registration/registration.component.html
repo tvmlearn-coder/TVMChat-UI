@@ -1,1 +1,53 @@
-<p>registration works!</p>
+<div class="login-wrapper">
+    <div class="log-container">
+        <div class="login-card">
+            <h2>Register</h2>
+
+            <form [formGroup]="registerForm">
+
+                <!-- Email -->
+                <div class="input-group">
+                    <i class="bi bi-envelope-fill"></i>
+                    <input type="email" formControlName="email" placeholder="Enter an Email" />
+                </div>
+
+                <!-- Password -->
+                <div class="input-group password-input">
+                    <i class="bi bi-lock-fill"></i>
+                    <input [type]="passwordVisible ? 'text' : 'password'" formControlName="password"
+                        placeholder="Password" />
+                    <span class="toggle-eye" (click)="togglePassword()">
+                        <i [class]="passwordVisible ? 'bi bi-eye-fill' : 'bi bi-eye-slash-fill'"></i>
+                    </span>
+                </div>
+                <!-- Confirm Password -->
+
+                <div class="input-group confirm-password-input">
+                    <i class="bi bi-lock-fill"></i>
+                    <input [type]="confirmPasswordVisible ? 'text' : 'password'" formControlName="confirmPassword"
+                        placeholder="Confirm Password" />
+                    <span class="toggle-eye" (click)="toggleConfirmPassword()">
+                        <i [class]="confirmPasswordVisible ? 'bi bi-eye-fill' : 'bi bi-eye-slash-fill'"></i>
+                    </span>
+                </div>
+
+
+                <!-- Error Message -->
+                <div *ngIf="errorMsg" class="alert alert-danger">
+                    {{ errorMsg }}
+                </div>
+
+                <!-- Success Message -->
+                <div *ngIf="successMsg" class="alert alert-success">
+                    {{ successMsg }}
+                </div>
+
+                <!-- Submit Button -->
+                <button type="button" (click)="register()">
+                    Register
+                </button>
+
+            </form>
+        </div>
+    </div>
+</div>
