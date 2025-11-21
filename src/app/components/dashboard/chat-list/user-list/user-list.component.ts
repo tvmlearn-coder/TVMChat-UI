@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ChatService, ChatUser } from '../../../../services/chat.service';
 
 @Component({
   selector: 'app-user-list',
@@ -12,5 +13,10 @@ users = [
   { name: "VTM Group", img: "assets/group.png", lastMessage: "Ok sir", time: "09:54" },
   
 ];
+  constructor(private chatService: ChatService) {}
+
+  selectUser(user: ChatUser) {
+    this.chatService.setSelectedUser(user);
+  }
 
 }

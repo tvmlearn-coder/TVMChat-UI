@@ -1,6 +1,6 @@
 <div class="user-list">
 
-  <div class="user-item" *ngFor="let user of users">
+  <div class="user-item" *ngFor="let user of users" (click)="selectUser(user)" role="button" tabindex="0">
     <img [src]="user.img" class="avatar" />
 
     <div class="details">

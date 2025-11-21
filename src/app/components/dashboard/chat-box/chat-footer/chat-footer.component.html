@@ -1,1 +1,17 @@
-<p>chat-footer works!</p>
+<div class="chat-footer">
+
+<button class="icon" (click)="toggleEmoji()">😊</button>
+<div class="emoji-box" *ngIf="showEmoji">
+  <span class="emoji" 
+        *ngFor="let e of emojis" 
+        (click)="pickEmoji(e)">
+    {{ e }}
+  </span>
+</div>
+ <button class="icon">📎</button>
+
+  <input type="text" class="chat-input" placeholder="Type a message" />
+
+  <button class="send-btn">➤</button>
+</div>
+

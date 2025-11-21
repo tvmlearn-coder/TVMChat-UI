@@ -1,0 +1,73 @@
+.chat-main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  background-image: url("/mnt/data/726223dd-bef5-4212-b59d-04c52cb280ad.png");
+  background-size: contain;
+  background-repeat: repeat;
+  background-position: center;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 70%;
+  margin-left: auto; /* messages aligned to right */
+}
+
+/* message bubbles */
+.message {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.bubble {
+  max-width: 80%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.4;
+  background: #dcf8c6;
+  position: relative;
+}
+
+.incoming .bubble {
+  background: #e2ffc8;
+}
+
+/* forwarded */
+.forwarded {
+  background: #f5fff1;
+  border: 1px dashed #cdeccd;
+}
+
+/* link card */
+.link-preview {
+  display: flex;
+  gap: 12px;
+  background: #ffffff;
+  border: 1px solid #dfeedd;
+}
+
+.link-thumbnail {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.link-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.link-info {
+  font-size: 12px;
+}
+
+.link-info strong {
+  font-size: 13px;
+}
