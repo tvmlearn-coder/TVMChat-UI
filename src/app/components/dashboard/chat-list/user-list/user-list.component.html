@@ -1,1 +1,17 @@
-<p>user-list works!</p>
+<div class="user-list">
+
+  <div class="user-item" *ngFor="let user of users">
+    <img [src]="user.img" class="avatar" />
+
+    <div class="details">
+      <div class="top">
+        <h4>{{ user.name }}</h4>
+        <span>{{ user.time }}</span>
+      </div>
+
+      <p class="last-message">{{ user.lastMessage }}</p>
+    </div>
+
+  </div>
+
+</div>
