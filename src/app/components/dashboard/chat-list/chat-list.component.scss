@@ -1,0 +1,22 @@
+
+.chat-list-wrapper {
+  position: fixed;
+  top: 55px;           
+  left: 65px;         
+  width: 350px;         
+  height: calc(100vh - 55px);
+  background: #ffffff;
+  border-right: 1px solid #e6e6e6;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0;
+  box-sizing: border-box;
+  z-index: 100;
+}
+
+.chat-list-wrapper > * {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}

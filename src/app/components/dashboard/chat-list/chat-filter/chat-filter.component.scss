@@ -1,0 +1,21 @@
+.filter-box {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e5e5;
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    .material-icons {
+      font-size: 22px;
+      color: #555;
+    }
+
+    &:hover .material-icons {
+      color: #000;
+    }
+  }
+}
