@@ -1,0 +1,18 @@
+<div class="toast-container">
+  <div
+    *ngFor="let notification of notifications"
+    class="toast"
+    [ngClass]="notification.type"
+  >
+    <div class="toast-content">
+      <span class="icon">
+        <i *ngIf="notification.type === 'success'" class="bi bi-check-circle-fill"></i>
+        <i *ngIf="notification.type === 'error'" class="bi bi-exclamation-triangle-fill"></i>
+      </span>
+      <span class="message">{{ notification.message }}</span>
+    </div>
+    <button class="close-btn" (click)="removeNotification(notification.id)">
+      <i class="bi bi-x"></i>
+    </button>
+  </div>
+</div>

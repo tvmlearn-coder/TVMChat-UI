@@ -1,1 +1,47 @@
-<p>profile-setup works!</p>
+<div class="profile-wrapper">
+  <div class="profile-card">
+
+    <h2>Setup Your Profile</h2>
+
+    <!-- Profile Image Circle -->
+    <div class="profile-photo-section">
+      <div class="profile-photo-wrapper">
+        <img
+          *ngIf="profile.get('profilePhoto')?.value; else placeholder"
+          [src]="profile.get('profilePhoto')?.value"
+          class="profile-photo-preview"
+          alt="Profile Photo"
+        />
+        <ng-template #placeholder>
+          <div class="profile-photo-placeholder">
+            <i class="bi bi-person-fill"></i>
+          </div>
+        </ng-template>
+      </div>
+
+      <!-- Upload Button Below Circle -->
+      <button type="button" class="upload-btn" (click)="fileInput.click()">
+        Upload Profile Photo
+      </button>
+      <input
+        type="file"
+        #fileInput
+        (change)="onFileChange($event)"
+        accept="image/*"
+        hidden
+      />
+    </div>
+
+    <!-- Profile Form -->
+    <form [formGroup]="profile" (ngSubmit)="save()" class="profile-form">
+      <input type="text" formControlName="username" placeholder="Username *" />
+      <input type="email" formControlName="email" placeholder="Email" readonly />
+      <textarea formControlName="about" placeholder="About / Bio"></textarea>
+      <input type="date" formControlName="dob" />
+      <button type="submit" class="save-btn">Save Profile</button>
+    </form>
+
+    <button type="button" class="skip-btn" (click)="skip()">Skip</button>
+
+  </div>
+</div>
