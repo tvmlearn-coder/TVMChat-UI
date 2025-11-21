@@ -1,0 +1,107 @@
+.toast-container {
+  position: fixed;
+  top: 80px;
+  right: 30px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+
+  .toast {
+    pointer-events: auto;
+    min-width: 320px;
+    max-width: 420px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 500;
+    animation: slideIn 0.35s ease, fadeOut 0.4s ease forwards;
+    animation-delay: 0s, 4.2s;
+    opacity: 0.95;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(135deg, #00f5ff, #ff00ff);
+    color: #fff;
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.7);
+    border-left: 5px solid transparent; // can change per type
+
+    transition: all 0.25s ease;
+
+    &:hover {
+      transform: translateX(-4px) scale(1.02);
+      opacity: 1;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    &.success {
+      border-left-color: #00ff95;
+      background: linear-gradient(135deg, #00ffc3, #00ff95);
+      color: #003300;
+      text-shadow: 0 0 6px rgba(0, 255, 149, 0.7);
+    }
+
+    &.error {
+      border-left-color: #ff004c;
+      background: linear-gradient(135deg, #ff4d6d, #ff004c);
+      color: #330000;
+      text-shadow: 0 0 6px rgba(255, 0, 76, 0.7);
+    }
+  }
+
+  .toast-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+
+    .icon {
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      text-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+    }
+
+    .message {
+      flex: 1;
+      font-size: 0.96rem;
+      line-height: 1.3;
+    }
+  }
+
+  .close-btn {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: 1.25rem;
+    opacity: 0.7;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      opacity: 1;
+      transform: scale(1.15);
+    }
+  }
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 0.95;
+  }
+}
+
+/* Fade-out animation */
+@keyframes fadeOut {
+  to {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
