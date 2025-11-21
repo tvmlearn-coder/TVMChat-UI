@@ -32,6 +32,7 @@ import { ChatMainComponent } from './components/dashboard/chat-box/chat-main/cha
 import { ChatFooterComponent } from './components/dashboard/chat-box/chat-footer/chat-footer.component';
 import { InterceptorInterceptor } from './interceptor.interceptor';
 import { DashboardComponent } from './components/dashboard/dashboard/dashboard.component';
+import { ToastComponent } from './components/toast/toast.component';
 
 registerLocaleData(en);
 
@@ -56,7 +57,8 @@ registerLocaleData(en);
     ChatHeaderComponent,
     ChatMainComponent,
     ChatFooterComponent,
-    DashboardComponent
+    DashboardComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule,
