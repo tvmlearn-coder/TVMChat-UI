@@ -17,15 +17,15 @@ export class ProfileService {
   }
 
   updateProfile(profileData: any): Observable<any> {
-    // First, get the user by email
     return this.getUserByEmail(profileData.email).pipe(
       switchMap(user => {
         if (!user) throw new Error('User not found');
-
-        // Use HTTP PUT to update the same user by ID
         return this.http.put(`${this.apiUrl}/${user.id}`, { ...user, ...profileData });
       })
     );
   }
+
+  getAllUsers() {
+    return this.http.get(this.apiUrl);
+  }
 }
-  

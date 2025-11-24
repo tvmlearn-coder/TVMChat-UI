@@ -1,1 +1,83 @@
-<p>profile works!</p>
+
+<div *ngIf="user; else noUser" class="profile-wrapper">
+      <!-- Back Button -->
+  <div class="back">
+    <button (click)="back()">
+      <i class="bi bi-arrow-left-short"></i> Back
+    </button>
+  </div>
+  <h2 class="profile-title">User Profile</h2>
+
+  <div class="profile-card">
+    <!-- Profile Photo -->
+    <div class="profile-photo-wrapper">
+      <img
+        *ngIf="user.profilePhoto; else defaultPhoto"
+        [src]="user.profilePhoto"
+        alt="Profile Photo"
+        class="profile-photo"
+        (click)="openFullPhoto()"
+      />
+
+      <ng-template #defaultPhoto>
+        <div class="profile-photo default">👤</div>
+      </ng-template>
+
+      <label class="change-photo-btn">
+        Change Photo
+        <input type="file" (change)="changePhoto($event)" hidden />
+      </label>
+    </div>
+
+    <!-- Profile Info -->
+    <div class="profile-info" [formGroup]="profileForm">
+      <div class="info-row">
+        <span class="label">Username:</span>
+        <span class="value">
+          <input *ngIf="editField === 'username'" formControlName="username" />
+          <span *ngIf="editField !== 'username'">{{ user.username || 'N/A' }}</span>
+          <i class="bi bi-pencil" (click)="edit('username')"></i>
+          <button *ngIf="editField === 'username'" (click)="save('username')">Save</button>
+        </span>
+      </div>
+
+<div class="info-row">
+  <span class="label">Email:</span>
+  <span class="value">
+    <span>{{ user.email }}</span>
+  </span>
+</div>
+
+      <div class="info-row">
+        <span class="label">About:</span>
+        <span class="value">
+          <input *ngIf="editField === 'about'" formControlName="about" />
+          <span *ngIf="editField !== 'about'">{{ user.about || 'N/A' }}</span>
+          <i class="bi bi-pencil" (click)="edit('about')"></i>
+          <button *ngIf="editField === 'about'" (click)="save('about')">Save</button>
+        </span>
+      </div>
+
+      <div class="info-row">
+        <span class="label">Date of Birth:</span>
+        <span class="value">
+          <input *ngIf="editField === 'dob'" type="date" formControlName="dob" />
+          <span *ngIf="editField !== 'dob'">{{ user.dob | date:'longDate' }}</span>
+          <i class="bi bi-pencil" (click)="edit('dob')"></i>
+          <button *ngIf="editField === 'dob'" (click)="save('dob')">Save</button>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noUser>
+  <p class="no-user">No user found.</p>
+</ng-template>
+
+<!-- 📌 FULL IMAGE POPUP MODAL -->
+<div class="image-modal" *ngIf="showFullImage && user?.profilePhoto" (click)="closeFullPhoto()">
+  <div class="image-box" (click)="$event.stopPropagation()">
+    <img [src]="user?.profilePhoto" alt="Full Photo" />
+  </div>
+</div>

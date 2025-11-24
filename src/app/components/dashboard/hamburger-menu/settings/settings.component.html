@@ -1,1 +1,101 @@
-<p>settings works!</p>
+<div class="settings">  
+  <!-- Back Button -->
+  <div class="back">
+    <button (click)="back()">
+      <i class="bi bi-arrow-left-short"></i> Back
+    </button>
+  </div>
+<div class="settings-wrapper">
+
+
+  <!-- Main Settings Container -->
+  <div class="settings-container">
+
+    <!-- Header -->
+    <div class="header">
+      <a>
+        <i class="bi bi-gear"></i>
+        Settings
+      </a>
+    </div>
+
+    <!-- Profile Row -->
+    <div class="profile-row" *ngIf="user">
+      <div class="photo-circle">
+        <img
+          *ngIf="user.profilePhoto"
+          [src]="user.profilePhoto"
+          alt="profile"
+          class="profile-img"
+        />
+        <i *ngIf="!user.profilePhoto" class="bi bi-person-fill"></i>
+      </div>
+
+      <div class="profile-info">
+        <h3>{{ user.username }}</h3>
+      </div>
+    </div>
+
+    <!-- All Rows -->
+    <div class="rows">
+
+      <!-- Theme Toggle Row -->
+      <div class="row-item">
+        <div class="left">
+          <i class="bi bi-palette"></i>
+        </div>
+
+        <div class="center">
+          Theme
+        </div>
+
+        <div class="right">
+          <label class="toggle">
+            <input
+              type="checkbox"
+              [checked]="themeChecked"
+              (change)="toggleTheme($event)"
+            />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Divider Line -->
+      <div class="line"></div>
+
+      <!-- Notification Row -->
+      <div class="row-item notification-row">
+        <div class="left">
+          <i class="bi bi-bell"></i>
+        </div>
+
+        <div class="center">
+          Notification
+        </div>
+
+        <div class="right">
+
+          <!-- File Upload Button -->
+          <label class="file-upload-btn">
+            Choose File
+            <input type="file" (change)="onFileSelected($event)" />
+          </label>
+
+          <!-- Selected File Name -->
+          <span class="file-name">
+            {{ selectedFileName || 'No file chosen' }}
+          </span>
+
+          <!-- Play Notification Sound -->
+          <button class="play" (click)="playTestSound()">Play</button>
+        </div>
+      </div>
+
+      <!-- Logout Button -->
+      <button class="logout-btn" (click)="logout()">Logout</button>
+
+    </div>
+  </div>
+</div>
+</div>

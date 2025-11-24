@@ -13,13 +13,26 @@ export class ToastComponent implements OnInit, OnDestroy {
 
   constructor(private notificationService: NotificationService) {}
 
-  ngOnInit() {
-    this.subscription = this.notificationService.notifications.subscribe(
-        (notifications: Notification[]) => {
-        this.notifications = notifications;
+ngOnInit() {
+  this.subscription = this.notificationService.notifications.subscribe(
+    (notifications: Notification[]) => {
+      this.notifications = notifications;
+
+      const newest = notifications[notifications.length - 1];
+      if (newest) {
+        this.playSoundFromService();
       }
-    );
+    }
+  );
+}
+
+playSoundFromService() {
+  const sound = this.notificationService.getNotificationSound();
+  if (sound) {
+    const audio = new Audio(sound);
+    audio.play();
   }
+}
 
   ngOnDestroy() {
     if (this.subscription) {
