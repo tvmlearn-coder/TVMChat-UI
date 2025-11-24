@@ -14,7 +14,7 @@ export class HamburgerMenuComponent {
   }
 
   menuItems = [
-    { label: 'All Chats', icon: 'chat', route: '/chats' },
+    { label: 'All Chats', icon: 'chat', route: '/all-chat' },
     { label: 'Status', icon: 'donut_large', route: '/status' },
      { label: 'Dummy AI', icon: 'smart_toy', route: '/dummy-ai' } ,
     { label: 'Settings', icon: 'settings', route: '/Settings' },

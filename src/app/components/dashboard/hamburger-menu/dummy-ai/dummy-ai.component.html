@@ -1,1 +1,19 @@
-<p>dummy-ai works!</p>
+<div class="chat-box">
+  <div class="messages">
+    <div *ngFor="let m of messages" class="msg" [ngClass]="m.from">
+      <strong>{{ m.from }}:</strong> {{ m.text }}
+    </div>
+  </div>
+
+  <div class="input-area">
+    <input
+      type="text"
+      [(ngModel)]="prompt"
+      placeholder="Ask something..."
+      (keydown.enter)="send()"
+    />
+    <button (click)="send()">Send</button>
+  </div>
+</div>
+<app-hamburger-menu></app-hamburger-menu> 
+<app-chat-logo></app-chat-logo>
