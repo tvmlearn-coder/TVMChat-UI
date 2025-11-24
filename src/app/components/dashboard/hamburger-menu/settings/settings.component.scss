@@ -1,0 +1,313 @@
+/* Make the component fill the entire viewport */
+:host {
+  display: block;
+  min-height: 100vh;
+  background-color: var(--primary-bg-color);
+}
+
+/* Apply the same background for child wrapper */
+.settings {
+  min-height: 100%;
+  background-color: var(--primary-bg-color);
+}
+
+/* BACK BUTTON */
+.back {
+  width: 100%;
+  padding: 15px 20px;
+
+  button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, var(--accent-blue-dark), var(--accent-blue));
+    color: var(--surface-color);
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+
+    &:hover {
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-dark));
+      transform: translateY(-2px);
+    }
+
+    i {
+      font-size: 20px;
+      color: var(--surface-color);
+    }
+  }
+}
+
+/* SETTINGS WRAPPER */
+.settings-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 30px 0;
+  background-color: var(--primary-bg-color);
+
+  .settings-container {
+    width: 85%;
+    max-width: 1100px;
+    background: var(--surface-color);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-color);
+
+    .header {
+      a {
+        font-size: 22px;
+        text-decoration: none;
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+
+        i {
+          font-size: 28px;
+          margin-right: 5px;
+          color: var(--text-primary);
+        }
+      }
+    }
+
+    .profile-row {
+      margin-top: 25px;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      padding: 20px;
+      border-radius: 18px;
+      background: var(--surface-light);
+      border: 1px solid var(--border-color);
+
+      .photo-circle {
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        overflow: hidden;
+        background: var(--surface-light);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .profile-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        i {
+          font-size: 55px;
+          color: var(--text-secondary);
+        }
+      }
+
+      .profile-info h3 {
+        margin: 0;
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--text-primary);
+      }
+    }
+
+    .line {
+      width: 100%;
+      height: 1px;
+      background: var(--border-color);
+      margin: 25px 0;
+    }
+
+    .rows {
+      margin-top: 10px;
+
+      .row-item {
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 10px;
+        border-radius: 12px;
+        transition: 0.2s ease;
+        cursor: pointer;
+
+        &:hover {
+           background: var(--surface-light);
+        }
+
+        .left {
+          width: 45px;
+          display: flex;
+          justify-content: center;
+
+          i {
+            font-size: 22px;
+            color: var(--text-secondary);
+          }
+        }
+
+        .center {
+          flex: 1;
+          font-size: 18px;
+          font-weight: 500;
+          color: var(--text-primary);
+        }
+
+        .right {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .toggle {
+      position: relative;
+      width: 60px;
+      height: 40px;
+
+      input {
+        opacity: 0;
+        width: 60px;
+        height: 20px;
+      }
+
+      .slider {
+        position: absolute;
+        inset: 0;
+        background: var(--border-color);
+        border-radius: 30px;
+        cursor: pointer;
+        height: 29px;
+        transition: background 0.3s;
+
+        &::before {
+          content: "";
+          position: absolute;
+          height: 26px;
+          width: 26px;
+          left: 2px;
+          bottom: 2px;
+          background: var(--surface-color);
+          border-radius: 50%;
+          transition: transform 0.3s;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+      }
+
+      input:checked + .slider {
+        background: linear-gradient(135deg, var(--accent-blue-dark), var(--accent-blue));
+
+        &::before {
+          transform: translateX(30px);
+        }
+      }
+    }
+
+    .notification-row {
+      .right {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .file-upload-btn {
+          position: relative;
+          padding: 8px 18px;
+          background: linear-gradient(135deg, var(--accent-blue-dark), var(--accent-blue));
+          font-size: 14px;
+          font-weight: 500;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: 0.3s;
+
+          &:hover {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-dark));
+          }
+
+          input[type="file"] {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+          }
+        }
+
+        .file-name {
+          font-size: 14px;
+          color: var(--text-secondary);
+          max-width: 150px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+    }
+
+    .logout-btn {
+      margin-top: 40px;
+      padding: 12px 25px;
+      background: linear-gradient(135deg, var(--danger-red-1), var(--danger-red-2));
+      color: var(--surface-color);
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.2s;
+
+      &:hover {
+        background: linear-gradient(135deg, var(--danger-red-2), var(--danger-red-1));
+      }
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .settings-container {
+    width: 95% !important;
+  }
+
+  .profile-row {
+    flex-direction: column;
+    text-align: center;
+
+    .profile-info h3 {
+      margin-top: 10px;
+      font-size: 24px;
+    }
+  }
+
+  .notification-row .right {
+    flex-direction: column;
+    gap: 5px;
+
+    .file-name {
+      max-width: 100%;
+    }
+  }
+}
+
+.notification-row .right .play {
+  padding: 8px 20px;
+  background: linear-gradient(135deg, var(--accent-orange-1), var(--accent-orange-2));
+  color: var(--surface-color);
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: 0.3s ease, transform 0.2s;
+
+  &:hover {
+    background: linear-gradient(135deg, var(--accent-orange-2), var(--accent-orange-1));
+  }
+
+  &:active {
+    transform: translateY(0) scale(1.05);
+  }
+}

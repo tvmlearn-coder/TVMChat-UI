@@ -76,15 +76,19 @@ export class LoginComponent {
       }
 
       this.authService.register(email, password).subscribe({
-        next: () => {
-          this.notification.showSuccess('Registration Successful!');
-          this.registerForm.reset();
-          this.isRegister = false;
-        },
-        error: () => {
-          this.notification.showError('Registration failed. Try again!');
-        }
-      });
+          next: () => {
+            this.notification.showSuccess('Registration Successful!');
+            
+            // store the registered email since 'user' is not available here
+            localStorage.setItem('loggedInUserEmail', email);
+            this.registerForm.reset();
+            
+            this.isRegister = false;
+          },
+          error: () => {
+            this.notification.showError('Registration failed. Try again!');
+          }
+        });
 
       return;
     }
@@ -92,7 +96,7 @@ export class LoginComponent {
     // LOGIN
 // LOGIN
 if (this.loginForm.invalid) {
-  this.notification.showError('Please fill all fields correctly');
+  this.notification.showError('Please fill all fields correctly', );
   return;
 }
 
@@ -107,10 +111,11 @@ this.authService.login(email, password).subscribe((user) => {
     localStorage.setItem('userEmail', email);
 
     this.notification.showSuccess('Login Successful!');
+    localStorage.setItem('loggedInUserEmail', email);
     
     setTimeout(() => {
       // Redirect to profile setup page instead of dashboard
-      this.router.navigate(['/profile']);
+      this.router.navigate(['/profilesetup']);
     }, 800);
   } else {
     this.notification.showError('Invalid Email or Password!');

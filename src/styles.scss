@@ -1,4 +1,93 @@
-/* You can add global styles to this file, and also import other style files */
+/* =========================================================
+   GLOBAL LIGHT THEME (Default)
+   Using CSS Variables
+========================================================= */
+:root {
+  --primary-bg-color: #fff1dd;
+  --surface-color: #ffffff;
+  --surface-light: #f4f4f4;
+  --text-primary: #000;
+  --text-secondary: #555;
+  --border-color: #ddd;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+  --accent-blue: #3b57c1;
+  --accent-blue-dark: #1e3a8a;
+
+  --danger-red-1: #ff4d4d;
+  --danger-red-2: #ff1a1a;
+
+  --accent-orange-1: #ff9800;
+  --accent-orange-2: #ffb74d;
+}
+
+/* =========================================================
+   DARK THEME VARIABLES (applied when toggled)
+========================================================= */
+body.dark-theme {
+  --primary-bg-color: #000E22;
+  --surface-color: #0f1a2c;
+  --surface-light: #162239;
+  --text-primary: #e9edf5;
+  --text-secondary: #9ba7b8;
+  --border-color: #1f2e46;
+
+  --accent-blue: #3b57c1;
+  --accent-blue-dark: #1e3a8a;
+
+  --danger-red-1: #ff4d4d;
+  --danger-red-2: #ff1a1a;
+
+  --accent-orange-1: #ff9800;
+  --accent-orange-2: #ffb74d;
+}
+
+/* Smooth Global Theme Transition */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* =========================================================
+   DARK THEME STYLES (LIMITED TO YOUR MAIN APP CONTENT)
+   Prevents affecting Settings component
+========================================================= */
+
+/* Wrap your app inside <div class="app-theme-wrapper"> in app.component.html */
+body.dark-theme .app-theme-wrapper {
+  background: #0f172a !important;
+  color: #fff !important;
+}
+
+/* Cards / Containers inside App */
+body.dark-theme .app-theme-wrapper .profile-card,
+body.dark-theme .app-theme-wrapper .settings-container,
+body.dark-theme .app-theme-wrapper .chat-container,
+body.dark-theme .app-theme-wrapper .profile-wrapper {
+  background: #1e293b !important;
+  color: #fff !important;
+}
+
+/* Inputs */
+body.dark-theme .app-theme-wrapper input,
+body.dark-theme .app-theme-wrapper textarea,
+body.dark-theme .app-theme-wrapper select {
+  background: #334155 !important;
+  color: #ffffff !important;
+  border-color: #475569 !important;
+}
+
+/* Labels */
+body.dark-theme .app-theme-wrapper .label {
+  color: #e2e8f0 !important;
+}
+
+/* Text */
+body.dark-theme .app-theme-wrapper .value span,
+body.dark-theme .app-theme-wrapper .value input {
+  color: #ffffff !important;
+}
+
+/* Buttons inside main app */
+body.dark-theme .app-theme-wrapper button {
+  background: #0ea5e9 !important;
+  color: #ffffff !important;
+}

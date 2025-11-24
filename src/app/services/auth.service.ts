@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
@@ -7,7 +8,7 @@ import { map } from 'rxjs/operators';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private location: Location) {}
 
   login(email: string, password: string) {
     return this.http.get<any[]>('http://localhost:3000/Access').pipe(
@@ -21,4 +22,10 @@ export class AuthService {
   register(email: string, password: string) {
     return this.http.post('http://localhost:3000/Access', { email, password });
   }
+  
+goBack() {
+  this.location.back();
+}
+
+
 }
