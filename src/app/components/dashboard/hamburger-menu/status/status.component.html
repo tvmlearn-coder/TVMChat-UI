@@ -1,1 +1,73 @@
-<p>status works!</p>
+<div class="status-container">
+
+  <!-- LEFT PANEL -->
+  <div class="left-panel">
+
+    <h3>Status</h3>
+
+    <!-- MY STATUS (Reactive) -->
+    <div class="my-status" (click)="open(myStatus!)">
+      <div class="avatar ring">
+        <img [src]="myStatus?.profile">
+      </div>
+
+      <div class="info">
+        <h4>My Status</h4>
+        <small>{{ myStatus?.stories?.[0]?.time || 'No updates yet' }}</small>
+      </div>
+    </div>
+
+    <p class="recent-title">Recent updates</p>
+
+    <div class="status-item" *ngFor="let u of recent" (click)="open(u)">
+      <div class="avatar ring">
+        <img [src]="u.profile">
+      </div>
+      <div class="info">
+        <h4>{{ u.name }}</h4>
+        <small>{{ u.stories[0].time }}</small>
+      </div>
+    </div>
+
+    <p class="recent-title">Viewed updates</p>
+
+    <div class="status-item viewed" *ngFor="let u of viewed" (click)="open(u)">
+      <div class="avatar">
+        <img [src]="u.profile">
+      </div>
+      <div class="info">
+        <h4>{{ u.name }}</h4>
+        <small>{{ u.stories[0].time }}</small>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- STORY VIEWER -->
+  <div class="right-panel" *ngIf="activeUser">
+
+    <div class="viewer">
+
+      <img class="story-img" [src]="activeUser.stories[storyIndex].image">
+
+      <div class="top-info">
+        <img [src]="activeUser.profile">
+        <div>
+          <h4 class="one">{{ activeUser.name }}</h4>
+          <small>{{ activeUser.stories[storyIndex].time }}</small>
+        </div>
+      </div>
+
+      <button class="close-btn" (click)="close()">×</button>
+
+      <div class="left-tap" (click)="prev()"></div>
+      <div class="right-tap" (click)="next()"></div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<app-hamburger-menu></app-hamburger-menu>
+<app-chat-logo></app-chat-logo>

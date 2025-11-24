@@ -39,5 +39,55 @@
       "about": "asdfghj",
       "dob": "33445-03-31"
     }
-  ]
+  ],
+  "status": {
+    "myStatus": {
+      "name": "You",
+      "profile": "assets/Picture/vajay.jpg",
+      "stories": [
+        {
+          "image": "assets/Picture/image.jpg",
+          "time": "Today, 08:30"
+        }
+      ]
+    },
+    "recent": [
+      {
+        "name": "Chittappa 😁😁😁",
+        "profile": "assets/profile1.jpg",
+        "stories": [
+          {
+            "image": "assets/videos/paithiyama_ivan.mp4",
+            "time": "Today, 11:38"
+          }
+        ]
+      },
+      {
+        "name": "Job",
+        "profile": "assets/profile2.jpg",
+        "stories": [
+          {
+            "image": "assets/status2.jpg",
+            "time": "Today, 10:31"
+          }
+        ]
+      }
+    ],
+    "viewed": [
+      {
+        "name": "Deva Natpu",
+        "profile": "assets/profile3.jpg",
+        "stories": [
+          {
+            "image": "assets/status3.jpg",
+            "time": "Today, 09:54"
+          },
+          {
+            "image": "assets/status3b.jpg",
+            "time": "Today, 09:55"
+          }
+        ]
+      }
+    ]
+  }
 }

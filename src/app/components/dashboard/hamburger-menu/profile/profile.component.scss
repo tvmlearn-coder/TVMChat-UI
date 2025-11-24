@@ -53,289 +53,212 @@
   color: var(--danger-red-1) !important;
 }
 
-/* ---------------------------------------------------
-   BACK BUTTON
---------------------------------------------------- */
+
 .back {
   width: 100%;
   padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--primary-bg-color);
+}
 
-  button {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background: linear-gradient(
-      135deg,
-      var(--accent-blue-dark),
-      var(--accent-blue)
-    );
-    color: #fff;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+.back button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, var(--accent-blue-dark), var(--accent-blue));
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
 
-    &:hover {
-      background: linear-gradient(
-        135deg,
-        var(--accent-blue),
-        var(--accent-blue-dark)
-      );
-      transform: translateY(-2px);
-    }
-
-    i {
-      font-size: 20px;
-    }
-  }
+.back button:hover {
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-dark));
+  transform: translateY(-2px);
 }
 
 /* ---------------------------------------------------
-   PROFILE WRAPPER
+   PROFILE WRAPPER — FIXED LIKE WHATSAPP
 --------------------------------------------------- */
 .profile-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 60px 20px;
-  min-height: 100vh;
+  position: fixed;                     /* FIXED */
+  top: 0;
+  left: 65px;                          /* hamburger menu spacing */
+  width: calc(100% - 70px);
+  height: 100vh;
+  overflow-y: auto;                    /* scroll content */
   background-color: var(--primary-bg-color);
+  padding: 90px 20px 40px;
   color: var(--text-primary);
   font-family: "Roboto", sans-serif;
-
-  .profile-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 50px;
-    text-align: center;
-    color:   var(--text-primary);
-  }
-
-  /* ---------------------------------------------------
-     PROFILE CARD
-  --------------------------------------------------- */
-  .profile-card {
-    background: var(--surface-color);
-    color: var(--text-primary);
-    border-radius: 30px;
-    width: 90%;
-    max-width: 750px;
-    padding: 50px 40px;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-    transition: 0.3s ease;
-
-    &:hover {
-      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
-    }
-
-    /* PROFILE PHOTO */
-    .profile-photo-wrapper {
-      position: relative;
-      margin-right: 50px;
-      flex-shrink: 0;
-
-      .profile-photo {
-        width: 160px;
-        height: 160px;
-        border-radius: 50%;
-        border: 5px solid var(--accent-blue-dark);
-        object-fit: cover;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        transition: transform 0.3s ease;
-
-        &.default {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: var(--surface-light);
-          color: var(--text-secondary);
-          font-size: 4rem;
-        }
-
-        &:hover {
-          transform: scale(1.05);
-        }
-      }
-
-      .change-photo-btn {
-        position: absolute;
-        bottom: -15px;
-        left: 50%;
-        transform: translateX(-50%);
-        padding: 6px 14px;
-        background: var(--accent-blue-dark);
-        color: #fff;
-        border-radius: 20px;
-        font-weight: 600;
-        font-size: 0.9rem;
-        cursor: pointer;
-        transition: 0.3s ease;
-
-        &:hover {
-          background: var(--accent-blue);
-        }
-      }
-    }
-
-    /* PROFILE INFO FORM */
-    .profile-info {
-      flex: 1;
-
-      .info-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px 20px;
-        margin-bottom: 15px;
-        border-radius: 15px;
-        background: var(--surface-light);
-        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
-        transition: background 0.3s;
-
-        &:hover {
-          background: var(--surface-color);
-        }
-
-        .label {
-          font-weight: 600;
-          font-size: 1.1rem;
-          color: var(--text-primary);
-        }
-
-        .value {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          font-weight: 600;
-          color: var(--accent-blue-dark);
-
-          input {
-            padding: 6px 10px;
-            border-radius: 10px;
-            border: 1px solid var(--border-color);
-            font-size: 1rem;
-            width: 180px;
-            color: var(--text-primary);
-            background: var(--surface-color);
-          }
-
-          button {
-            padding: 6px 12px;
-            background: var(--accent-blue-dark);
-            color: #fff;
-            font-weight: 600;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: 0.3s;
-
-            &:hover {
-              background: var(--accent-blue);
-            }
-          }
-
-          i.bi-pencil {
-            font-size: 1.2rem;
-            cursor: pointer;
-            color: var(--accent-blue-dark);
-            transition: 0.3s;
-
-            &:hover {
-              color: var(--accent-blue);
-            }
-          }
-        }
-      }
-    }
-  }
-
-  /* NO USER FOUND */
-  .no-user {
-    font-size: 1.5rem;
-    color: var(--danger-red-1);
-    font-weight: 600;
-    margin-top: 80px;
-    text-align: center;
-  }
+  z-index: 10;
 }
 
-/* FULL IMAGE POPUP */
+.profile-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+/* ---------------------------------------------------
+   PROFILE CARD
+--------------------------------------------------- */
+.profile-card {
+  background: var(--surface-color);
+  border-radius: 30px;
+  width: 90%;
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease;
+}
+
+.profile-card:hover {
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
+}
+
+/* PROFILE PHOTO */
+.profile-photo-wrapper {
+  position: relative;
+}
+
+.profile-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 5px solid var(--accent-blue-dark);
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.profile-photo.default {
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--surface-light);
+  color: var(--text-secondary);
+}
+
+.change-photo-btn {
+  position: absolute;
+  bottom: 88px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent-blue-dark);
+  padding: 8px 14px;
+  border-radius: 20px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ---------------------------------------------------
+   PROFILE INFO
+--------------------------------------------------- */
+.profile-info {
+  flex: 1;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--surface-light);
+  padding: 15px 20px;
+  border-radius: 15px;
+  margin-bottom: 16px;
+}
+
+.label {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.value {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.value input {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  width: 180px;
+  font-size: 1rem;
+}
+
+.value i {
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--accent-blue-dark);
+}
+
+/* ---------------------------------------------------
+   FULL IMAGE VIEW MODAL
+--------------------------------------------------- */
 .image-modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0,0,0,0.85);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
-  animation: fadeIn 0.3s ease;
-  backdrop-filter: blur(4px);
+  z-index: 999;
 }
 
 .image-box {
   background: var(--surface-color);
   padding: 10px;
-  border-radius: 15px;
-  max-width: 90%;
-  max-height: 90%;
-  animation: zoomIn 0.3s ease;
-
-  img {
-    width: 100%;
-    border-radius: 12px;
-    object-fit: contain;
-  }
+  border-radius: 14px;
 }
 
-/* ANIMATIONS */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.image-box img {
+  max-width: 95vw;
+  max-height: 95vh;
+  border-radius: 12px;
 }
 
-@keyframes zoomIn {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-
-/* RESPONSIVE */
+/* ---------------------------------------------------
+   RESPONSIVE
+--------------------------------------------------- */
 @media (max-width: 900px) {
-  .profile-wrapper .profile-card {
+  .profile-card {
     flex-direction: column;
     align-items: center;
-    padding: 40px 30px;
-    gap: 30px;
-
-    .profile-photo-wrapper {
-      margin-right: 0;
-    }
+    text-align: center;
   }
 }
 
 @media (max-width: 500px) {
   .profile-wrapper {
-    padding: 40px 10px;
-  }
-
-  .profile-card {
-    padding: 30px 20px !important;
-  }
-
-  .profile-photo-wrapper .profile-photo {
-    width: 130px;
-    height: 130px;
-  }
-
-  .info-row .value input {
-    width: 100% !important;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
+
+
+
+
+
+
+
+
+
+
